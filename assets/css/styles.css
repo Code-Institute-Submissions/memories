@@ -1,16 +1,16 @@
-html {
-  height: 100%;
+html { 
+ 
   -webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-body {
-  background-image: url(".././images/background_3.jpg");
-    background-size: cover;
-  background-repeat: no-repeat;
-}
+body{ background: url(".././images/background_3.jpg") no-repeat 
+    center center fixed;
+    background-size:cover;
+    background-position:center center; }
+
 
 .keyboard {
   display: flex;
@@ -95,3 +95,83 @@ body {
 
 .title{margin: 100px;}
 .credits{margin:150px;}
+
+
+
+
+
+/*------------------------------------------------------------media-------------------------------------------------*/
+
+
+/* Smartphones (portrait) ----------- */
+
+@media only screen and (max-width: 450px) {
+	
+}
+
+@media (max-width: 750px) and (min-width:560px) {
+
+}
+
+@media (max-width: 812px) and (min-width:745px) {
+	
+}
+
+
+@media (max-width: 1024px) and (min-width:820px) {
+
+}
+
+@media all and (orientation: portrait) {
+    body {
+        -webkit-transform: rotate(90deg); 
+        -moz-transform: rotate(90deg); 
+        -ms-transform : rotate(90deg); 
+        -o-transform: rotate(90deg); 
+        transform: rotate(90deg); 
+         overflow:hidden;
+    }
+
+
+   .white-key{
+       height: 180px;
+       width: 75px;
+   } 
+
+
+   .black-key{
+       height: 125px;
+       width: 35px;
+   }
+
+
+.Db4-key {
+  left: 50px;
+}
+
+.Eb4-key {
+  left: 125px;
+}
+
+.Gb4-key {
+  left: 269px;
+}
+
+.Ab4-key {
+  left: 335px;
+}
+
+.Bb4-key {
+  left: 405px;
+}
+
+.Db5-key {
+  left: 548px;
+}
+
+.Eb5-key {
+  left: 620px;
+}
+
+
+}
