@@ -183,55 +183,55 @@ const playE5 = () => {
 E5Key.addEventListener("click", playE5);
 
 window.addEventListener("keydown", ({ keyCode }) => {
-  // Press Q
+  // Press A
   if (keyCode === 65) return playC4();
 
-  // Press 2
-  if (keyCode === 50) return playDb4();
-
   // Press W
-  if (keyCode === 87) return playD4();
+  if (keyCode === 87) return playDb4();
 
-  // Press 3
-  if (keyCode === 51) return playEb4();
+  // Press S
+  if (keyCode === 83) return playD4();
 
   // Press E
-  if (keyCode === 69) return playE4();
+  if (keyCode === 69) return playEb4();
 
-  // Press R
-  if (keyCode === 82) return playF4();
+  // Press D
+  if (keyCode === 68) return playE4();
 
-  // Press 5
-  if (keyCode === 53) return playGb4();
+  // Press F
+  if (keyCode === 70) return playF4();
 
   // Press T
-  if (keyCode === 84) return playG4();
+  if (keyCode === 84) return playGb4();
 
-  // Press 6
-  if (keyCode === 54) return playAb4();
+  // Press G
+  if (keyCode === 71) return playG4();
 
   // Press Y
-  if (keyCode === 89) return playA4();
+  if (keyCode === 89) return playAb4();
 
-  // Press 7
-  if (keyCode === 55) return playBb4();
+  // Press H
+  if (keyCode === 72) return playA4();
 
   // Press U
-  if (keyCode === 85) return playB4();
+  if (keyCode === 85) return playBb4();
 
-  // Press I
-  if (keyCode === 73) return playC5();
+  // Press J
+  if (keyCode === 74) return playB4();
 
-  // Press 9
-  if (keyCode === 57) return playDb5();
+  // Press K
+  if (keyCode === 75) return playC5();
 
   // Press O
-  if (keyCode === 79) return playD5();
+  if (keyCode === 79) return playDb5();
 
-  // Press 0 
-  if (keyCode === 48) return playEb5();
+  // Press L
+  if (keyCode === 76) return playD5();
 
-  // Press P
-  if (keyCode === 80) return playE5();
+  // Press P 
+  if (keyCode === 80) return playEb5();
+
+  // Press ;
+  if (keyCode === 186) return playE5();
 }); 
 
