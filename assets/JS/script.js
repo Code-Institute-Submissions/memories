@@ -235,3 +235,26 @@ window.addEventListener("keydown", ({ keyCode }) => {
   if (keyCode === 186) return playE5();
 }); 
 
+
+ 
+
+
+var background_music,mutebtn,unmutebtn;
+function initAudioPlayer(){
+    background_music= new Audio();
+    background_music.src = "assets/sounds/background_music.mp3";
+    background_music.loop=true;
+    background_music.play();
+
+    mutebtn= document.getElementById("mute");
+    unmutebtn= document.getElementById("unmute");
+
+    mutebtn.addEventListener("click",mute);
+    unmutebtn.addEventListener("click",unmute);
+   
+    function mute(){
+        background_music.muted=true}
+    function unmute(){
+        background_music.muted=false}
+}
+window.addEventListener("load", initAudioPlayer);
