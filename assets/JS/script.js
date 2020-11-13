@@ -258,3 +258,41 @@ function initAudioPlayer(){
         background_music.muted=false}
 }
 window.addEventListener("load", initAudioPlayer);
+
+
+
+
+let order=[];
+let playerOrder=[];
+let turn;
+let good;
+let compTurn;
+let intervalId;
+let noise= true;
+let on = false;
+let win;
+
+
+const playButton = document.querySelector("#play");
+const tutorialButton = document.querySelector("#tutorial");
+
+
+playButton.addEventListener("click",(event)=>{
+    if (on||win){
+        play();
+    }
+});
+function play(){
+    win=false;
+    order=[];
+    playOrder=[];
+    flash = 0;
+    intervalId=0;
+    turn=1;
+    good=true;
+    for (var i=0; i<20; i++){
+        order.push(Math.floor(Math.random()*17)+1);
+    }
+    console.log(order);
+
+}
