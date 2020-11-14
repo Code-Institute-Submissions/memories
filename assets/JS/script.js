@@ -19,168 +19,6 @@ var E5 = new Audio("assets/sounds/E5.mp3");
 
 
 
-var playSound = audio => {
-  var clone = audio.cloneNode();
-  clone.play();
-  setTimeout(() => (clone.volume = 0.8), 400);
-  setTimeout(() => (clone.volume = 0.6), 800);
-  setTimeout(() => (clone.volume = 0.4), 1200);
-  setTimeout(() => (clone.volume = 0.2), 1600);
-  setTimeout(() => (clone.volume = 0), 2000);
-};
-
-// C4
-const C4Key = document.querySelector(".C4-key");
-const playC4 = () => {
-  playSound(C4);
-  C4Key.classList.add("active");
-  setTimeout(() => C4Key.classList.remove("active"), 200);
-};
-C4Key.addEventListener("click", playC4);
-
-// Db4
-const Db4Key = document.querySelector(".Db4-key");
-const playDb4 = () => {
-  playSound(Db4);
-  Db4Key.classList.add("active");
-  setTimeout(() => Db4Key.classList.remove("active"), 200);
-};
-Db4Key.addEventListener("click", playDb4);
-
-// D4
-const D4Key = document.querySelector(".D4-key");
-const playD4 = () => {
-  playSound(D4);
-  D4Key.classList.add("active");
-  setTimeout(() => D4Key.classList.remove("active"), 200);
-};
-D4Key.addEventListener("click", playD4);
-
-// Eb4
-const Eb4Key = document.querySelector(".Eb4-key");
-const playEb4 = () => {
-  playSound(Eb4);
-  Eb4Key.classList.add("active");
-  setTimeout(() => Eb4Key.classList.remove("active"), 200);
-};
-Eb4Key.addEventListener("click", playEb4);
-
-// E4
-const E4Key = document.querySelector(".E4-key");
-const playE4 = () => {
-  playSound(E4);
-  E4Key.classList.add("active");
-  setTimeout(() => E4Key.classList.remove("active"), 200);
-};
-E4Key.addEventListener("click", playE4);
-
-// F4
-const F4Key = document.querySelector(".F4-key");
-const playF4 = () => {
-  playSound(F4);
-  F4Key.classList.add("active");
-  setTimeout(() => F4Key.classList.remove("active"), 200);
-};
-F4Key.addEventListener("click", playF4);
-
-// Gb4
-const Gb4Key = document.querySelector(".Gb4-key");
-const playGb4 = () => {
-  playSound(Gb4);
-  Gb4Key.classList.add("active");
-  setTimeout(() => Gb4Key.classList.remove("active"), 200);
-};
-Gb4Key.addEventListener("click", playGb4);
-
-// G4
-const G4Key = document.querySelector(".G4-key");
-const playG4 = () => {
-  playSound(G4);
-  G4Key.classList.add("active");
-  setTimeout(() => G4Key.classList.remove("active"), 200);
-};
-G4Key.addEventListener("click", playG4);
-
-// Ab4
-const Ab4Key = document.querySelector(".Ab4-key");
-const playAb4 = () => {
-  playSound(Ab4);
-  Ab4Key.classList.add("active");
-  setTimeout(() => Ab4Key.classList.remove("active"), 200);
-};
-Ab4Key.addEventListener("click", playAb4);
-
-// A4
-const A4Key = document.querySelector(".A4-key");
-const playA4 = () => {
-  playSound(A4);
-  A4Key.classList.add("active");
-  setTimeout(() => A4Key.classList.remove("active"), 200);
-};
-A4Key.addEventListener("click", playA4);
-
-// Bb4
-const Bb4Key = document.querySelector(".Bb4-key");
-const playBb4 = () => {
-  playSound(Bb4);
-  Bb4Key.classList.add("active");
-  setTimeout(() => Bb4Key.classList.remove("active"), 200);
-};
-Bb4Key.addEventListener("click", playBb4);
-
-// B4
-const B4Key = document.querySelector(".B4-key");
-const playB4 = () => {
-  playSound(B4);
-  B4Key.classList.add("active");
-  setTimeout(() => B4Key.classList.remove("active"), 200);
-};
-B4Key.addEventListener("click", playB4);
-
-// C5
-const C5Key = document.querySelector(".C5-key");
-const playC5 = () => {
-  playSound(C5);
-  C5Key.classList.add("active");
-  setTimeout(() => C5Key.classList.remove("active"), 200);
-};
-C5Key.addEventListener("click", playC5);
-
-// Db5
-const Db5Key = document.querySelector(".Db5-key");
-const playDb5 = () => {
-  playSound(Db5);
-  Db5Key.classList.add("active");
-  setTimeout(() => Db5Key.classList.remove("active"), 200);
-};
-Db5Key.addEventListener("click", playDb5);
-
-// D5
-const D5Key = document.querySelector(".D5-key");
-const playD5 = () => {
-  playSound(D5);
-  D5Key.classList.add("active");
-  setTimeout(() => D5Key.classList.remove("active"), 200);
-};
-D5Key.addEventListener("click", playD5);
-
-// Eb5
-const Eb5Key = document.querySelector(".Eb5-key");
-const playEb5 = () => {
-  playSound(Eb5);
-  Eb5Key.classList.add("active");
-  setTimeout(() => Eb5Key.classList.remove("active"), 200);
-};
-Eb5Key.addEventListener("click", playEb5);
-
-// E5
-const E5Key = document.querySelector(".E5-key");
-const playE5 = () => {
-  playSound(E5);
-  E5Key.classList.add("active");
-  setTimeout(() => E5Key.classList.remove("active"), 200);
-};
-E5Key.addEventListener("click", playE5);
 
 window.addEventListener("keydown", ({ keyCode }) => {
   // Press A
@@ -264,6 +102,7 @@ window.addEventListener("load", initAudioPlayer);
 
 let order=[];
 let playerOrder=[];
+let flash
 let turn;
 let good;
 let compTurn;
@@ -278,7 +117,7 @@ const tutorialButton = document.querySelector("#tutorial");
 
 
 playButton.addEventListener("click",(event)=>{
-    if (on||win){
+    if (win=true){
         play();
     }
 });
@@ -294,5 +133,205 @@ function play(){
         order.push(Math.floor(Math.random()*17)+1);
     }
     console.log(order);
+
+    compTurn=true;
+    intervalId= setInterval(gameTurn, 800);
+    
+}
+function gameTurn(){
+    play=false;
+    if (flash==turn){
+        clearInterval(intervalId);
+        campTurn=false;
+        clearColor();
+        play=true;
+    }
+
+    if(compTurn){
+        clearColor();
+        setTimeout(()=>{
+            if(order[flash]==1) one();
+            if(order[flash]==2) two();
+            if(order[flash]==3) three();
+            if(order[flash]==4) four();
+            if(order[flash]==5) five();
+            if(order[flash]==6) six();
+            if(order[flash]==7) seven();
+            if(order[flash]==8) eight();
+            if(order[flash]==9) nine();
+            if(order[flash]==10) ten();
+            if(order[flash]==11) eleven();
+            if(order[flash]==12) twelve();
+            if(order[flash]==13) thirteen();
+            if(order[flash]==14) fourteen();
+            if(order[flash]==15) fifteen();
+            if(order[flash]==16) sixteen();
+            if(order[flash]==17) seventeen();
+            flash++;
+        },200);
+
+    }
+}
+/*---------------------------buton functions--------------------*/
+function one(){
+    if (noise){let audio=document.querySelector(".C4-key");
+    audio.play();}
+    noise=true;
+    C4Key.style.backgroundColor="lightgrey";
+}
+
+function two(){
+    if (noise){let audio=document.querySelector(".Db4-key");
+    audio.play();}
+    noise=true;
+    D4Key.style.backgroundColor="grey";
+}
+function three(){
+    if (noise){let audio=document.querySelector(".D4-key");
+    audio.play();}
+    noise=true;
+    D4Key.style.backgroundColor="lightgrey";
+}
+
+function four(){
+    if (noise){let audio=document.querySelector(".Eb4-key");;
+    audio.play();}
+    noise=true;
+    Eb4Key.style.backgroundColor="grey";
+}
+
+function five(){
+    if (noise){let audio=document.querySelector(".E4-key");
+    audio.play();}
+    noise=true;
+    E4Key.style.backgroundColor="lightgrey";
+}
+
+function six(){
+    if (noise){let audio=document.querySelector(".F4-key");
+audio.play();}
+    noise=true;
+    F4Key.style.backgroundColor="lightgrey";
+}
+
+function seven(){
+    if (noise){let audio=document.querySelector(".Gb4-key");
+    audio.play();
+}
+    noise=true;
+    Gb4Key.style.backgroundColor="grey";
+}
+
+function eight(){
+    if (noise){let audio=document.querySelector(".G4-key");
+    audio.play();
+}
+    noise=true;
+    G4Key.style.backgroundColor="lightgrey";
+}
+
+function nine(){
+    if (noise){
+        let audio=document.querySelector(".Ab4-key");
+         audio.play();
+    }
+    noise=true;
+    Ab4Key.style.backgroundColor="grey";
+}
+
+function ten(){
+    if (noise){let audio=document.querySelector(".A4-key");
+    audio.play();}
+    noise=true;
+    A4Key.style.backgroundColor="lightgrey";
+}
+
+function eleven(){
+    if (noise){let audio=document.querySelector(".Bb4-key");
+    audio.play();}
+    noise=true;
+    Bb4Key.style.backgroundColor="grey";
+}
+
+function twelve(){
+    if (noise){let audio=document.querySelector(".B4-key");
+    audio.play();}
+    noise=true;
+    B4Key.style.backgroundColor="lightgrey";
+}
+
+function thirteen(){
+    if (noise){
+        let audio=document.querySelector(".C5-key");
+        audio.play();
+    }
+    noise=true;
+    C5Key.style.backgroundColor="lightgrey";
+}
+
+function fourteen(){
+    if (noise){let audio=document.querySelector(".Db5-key");
+    audio.play();}
+    noise=true;
+    Db5Key.style.backgroundColor="grey";
+}
+
+function fifteen(){
+    if (noise){let audio=document.querySelector(".D5-key");
+    audio.play();}
+    noise=true;
+    D5Key.style.backgroundColor="lightgrey";
+}
+
+function sixteen(){
+    if (noise){let audio=document.querySelector(".Eb5-key");
+    audio.play();}
+    noise=true;
+    Eb5Key.style.backgroundColor="grey";
+}
+
+function seventeen(){
+    if (noise){let audio=document.querySelector(".E5-key");
+    audio.play();}
+    noise=true;
+    E5Key.style.backgroundColor="lightgrey";
+}
+
+
+
+
+function clearColor(){
+C4Key.style.backgroundColor="white";
+Db4Key.style.backgroundColor="black";
+
+D4Key.style.backgroundColor="white";
+
+Eb4Key.style.backgroundColor="black";
+
+E4Key.style.backgroundColor="white";
+
+F4Key.style.backgroundColor="white";
+
+Gb4Key.style.backgroundColor="black";
+
+G4Key.style.backgroundColor="white";
+
+Ab4Key.style.backgroundColor="black";
+
+A4Key.style.backgroundColor="white";
+
+Bb4Key.style.backgroundColor="black";
+
+B4Key.style.backgroundColor="white";
+
+C5Key.style.backgroundColor="white";
+
+Db5Key.style.backgroundColor="black";
+
+D5Key.style.backgroundColor="white";
+
+Eb5Key.style.backgroundColor="black";
+
+E5Key.style.backgroundColor="white";
 
 }
