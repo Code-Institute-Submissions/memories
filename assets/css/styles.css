@@ -212,7 +212,8 @@ body {
 }
 
 .button {
-  text-align: middle;
+  text-align: center;
+  width: 120px;
   margin-top: 5px;
   margin-left: 20px;
   padding-top: 5px;
@@ -225,7 +226,7 @@ body {
   box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
     5px 5px 15px 5px rgba(255, 139, 253, 0);
 
-  border-radius: 3px;
+  border-radius: 15px;
 
   font-family: "Luckiest Guy", cursive;
   font-size: 16px;
@@ -253,3 +254,15 @@ body {
   font-size: 80px;
 }
 
+
+
+#turn {
+background: #330000;
+    color: red;
+    font-family: courier;
+    font-size: 30px;
+}
+
+
+h2,h3{margin: 0;
+    font-size: 1.17rem;}
