@@ -16,9 +16,187 @@ var D5 = new Audio("assets/sounds/D5.mp3");
 var Eb5 = new Audio("assets/sounds/Eb5.mp3");
 var E5 = new Audio("assets/sounds/E5.mp3");
 
+/*------------------------Piano keys-----------------------*/
+const C4Key = document.querySelector(".C4-key");
+const Db4Key = document.querySelector(".Db4-key");
+const D4Key = document.querySelector(".D4-key");
+const Eb4Key = document.querySelector(".Eb4-key");
+const E4Key = document.querySelector(".E4-key");
+const F4Key = document.querySelector(".F4-key");
+const Gb4Key = document.querySelector(".Gb4-key");
+const G4Key = document.querySelector(".G4-key");
+const Ab4Key = document.querySelector(".Ab4-key");
+const A4Key = document.querySelector(".A4-key");
+const Bb4Key = document.querySelector(".Bb4-key");
+const B4Key = document.querySelector(".B4-key");
+const C5Key = document.querySelector(".C5-key");
+const Db5Key = document.querySelector(".Db5-key");
+const D5Key = document.querySelector(".D5-key");
+const Eb5Key = document.querySelector(".Eb5-key");
+const E5Key = document.querySelector(".E5-key");
 
+var playSound = audio => {
+  var clone = audio.cloneNode();
+  clone.play();
+  setTimeout(() => (clone.volume = 0.8), 400);
+  setTimeout(() => (clone.volume = 0.6), 800);
+  setTimeout(() => (clone.volume = 0.4), 1200);
+  setTimeout(() => (clone.volume = 0.2), 1600);
+  setTimeout(() => (clone.volume = 0), 2000);
+};
 
+// C4
 
+const playC4 = () => {
+  playSound(C4);
+  C4Key.classList.add("active");
+  setTimeout(() => C4Key.classList.remove("active"), 200);
+};
+C4Key.addEventListener("click", playC4);
+
+// Db4
+
+const playDb4 = () => {
+  playSound(Db4);
+  Db4Key.classList.add("active");
+  setTimeout(() => Db4Key.classList.remove("active"), 200);
+};
+Db4Key.addEventListener("click", playDb4);
+
+// D4
+
+const playD4 = () => {
+  playSound(D4);
+  D4Key.classList.add("active");
+  setTimeout(() => D4Key.classList.remove("active"), 200);
+};
+D4Key.addEventListener("click", playD4);
+
+// Eb4
+
+const playEb4 = () => {
+  playSound(Eb4);
+  Eb4Key.classList.add("active");
+  setTimeout(() => Eb4Key.classList.remove("active"), 200);
+};
+Eb4Key.addEventListener("click", playEb4);
+
+// E4
+
+const playE4 = () => {
+  playSound(E4);
+  E4Key.classList.add("active");
+  setTimeout(() => E4Key.classList.remove("active"), 200);
+};
+E4Key.addEventListener("click", playE4);
+
+// F4
+
+const playF4 = () => {
+  playSound(F4);
+  F4Key.classList.add("active");
+  setTimeout(() => F4Key.classList.remove("active"), 200);
+};
+F4Key.addEventListener("click", playF4);
+
+// Gb4
+
+const playGb4 = () => {
+  playSound(Gb4);
+  Gb4Key.classList.add("active");
+  setTimeout(() => Gb4Key.classList.remove("active"), 200);
+};
+Gb4Key.addEventListener("click", playGb4);
+
+// G4
+
+const playG4 = () => {
+  playSound(G4);
+  G4Key.classList.add("active");
+  setTimeout(() => G4Key.classList.remove("active"), 200);
+};
+G4Key.addEventListener("click", playG4);
+
+// Ab4
+
+const playAb4 = () => {
+  playSound(Ab4);
+  Ab4Key.classList.add("active");
+  setTimeout(() => Ab4Key.classList.remove("active"), 200);
+};
+Ab4Key.addEventListener("click", playAb4);
+
+// A4
+
+const playA4 = () => {
+  playSound(A4);
+  A4Key.classList.add("active");
+  setTimeout(() => A4Key.classList.remove("active"), 200);
+};
+A4Key.addEventListener("click", playA4);
+
+// Bb4
+
+const playBb4 = () => {
+  playSound(Bb4);
+  Bb4Key.classList.add("active");
+  setTimeout(() => Bb4Key.classList.remove("active"), 200);
+};
+Bb4Key.addEventListener("click", playBb4);
+
+// B4
+
+const playB4 = () => {
+  playSound(B4);
+  B4Key.classList.add("active");
+  setTimeout(() => B4Key.classList.remove("active"), 200);
+};
+B4Key.addEventListener("click", playB4);
+
+// C5
+
+const playC5 = () => {
+  playSound(C5);
+  C5Key.classList.add("active");
+  setTimeout(() => C5Key.classList.remove("active"), 200);
+};
+C5Key.addEventListener("click", playC5);
+
+// Db5
+
+const playDb5 = () => {
+  playSound(Db5);
+  Db5Key.classList.add("active");
+  setTimeout(() => Db5Key.classList.remove("active"), 200);
+};
+Db5Key.addEventListener("click", playDb5);
+
+// D5
+
+const playD5 = () => {
+  playSound(D5);
+  D5Key.classList.add("active");
+  setTimeout(() => D5Key.classList.remove("active"), 200);
+};
+D5Key.addEventListener("click", playD5);
+
+// Eb5
+
+const playEb5 = () => {
+  playSound(Eb5);
+  Eb5Key.classList.add("active");
+  setTimeout(() => Eb5Key.classList.remove("active"), 200);
+};
+Eb5Key.addEventListener("click", playEb5);
+
+// E5
+
+const playE5 = () => {
+  playSound(E5);
+  E5Key.classList.add("active");
+  setTimeout(() => E5Key.classList.remove("active"), 200);
+};
+E5Key.addEventListener("click", playE5);
 
 window.addEventListener("keydown", ({ keyCode }) => {
   // Press A
@@ -174,125 +352,103 @@ function gameTurn(){
 }
 /*---------------------------buton functions--------------------*/
 function one(){
-    if (noise){let audio=document.querySelector(".C4-key");
-    audio.play();}
+    if (noise){playSound(C4);}
     noise=true;
     C4Key.style.backgroundColor="lightgrey";
 }
 
 function two(){
-    if (noise){let audio=document.querySelector(".Db4-key");
-    audio.play();}
+    if (noise){playSound(Db4);}
     noise=true;
     D4Key.style.backgroundColor="grey";
 }
 function three(){
-    if (noise){let audio=document.querySelector(".D4-key");
-    audio.play();}
+    if (noise){playSound(D4);}
     noise=true;
     D4Key.style.backgroundColor="lightgrey";
 }
 
 function four(){
-    if (noise){let audio=document.querySelector(".Eb4-key");;
-    audio.play();}
+    if (noise){playSound(Eb4);}
     noise=true;
     Eb4Key.style.backgroundColor="grey";
 }
 
 function five(){
-    if (noise){let audio=document.querySelector(".E4-key");
-    audio.play();}
+    if (noise){playSound(E4);}
     noise=true;
     E4Key.style.backgroundColor="lightgrey";
 }
 
 function six(){
-    if (noise){let audio=document.querySelector(".F4-key");
-audio.play();}
+    if (noise){playSound(F4);}
     noise=true;
     F4Key.style.backgroundColor="lightgrey";
 }
 
 function seven(){
-    if (noise){let audio=document.querySelector(".Gb4-key");
-    audio.play();
-}
+    if (noise){playSound(Gb4);}
     noise=true;
     Gb4Key.style.backgroundColor="grey";
 }
 
 function eight(){
-    if (noise){let audio=document.querySelector(".G4-key");
-    audio.play();
-}
+    if (noise){playSound(G4);}
     noise=true;
     G4Key.style.backgroundColor="lightgrey";
 }
 
 function nine(){
-    if (noise){
-        let audio=document.querySelector(".Ab4-key");
-         audio.play();
-    }
+    if (noise){playSound(Ab4);}
     noise=true;
     Ab4Key.style.backgroundColor="grey";
 }
 
 function ten(){
-    if (noise){let audio=document.querySelector(".A4-key");
-    audio.play();}
+    if (noise){playSound(A4);}
     noise=true;
     A4Key.style.backgroundColor="lightgrey";
 }
 
 function eleven(){
-    if (noise){let audio=document.querySelector(".Bb4-key");
-    audio.play();}
+    if (noise){playSound(Bb4);}
     noise=true;
     Bb4Key.style.backgroundColor="grey";
 }
 
 function twelve(){
-    if (noise){let audio=document.querySelector(".B4-key");
-    audio.play();}
+    if (noise){playSound(B4);}
     noise=true;
     B4Key.style.backgroundColor="lightgrey";
 }
 
 function thirteen(){
-    if (noise){
-        let audio=document.querySelector(".C5-key");
-        audio.play();
+    if (noise){playSound(C5);
     }
     noise=true;
     C5Key.style.backgroundColor="lightgrey";
 }
 
 function fourteen(){
-    if (noise){let audio=document.querySelector(".Db5-key");
-    audio.play();}
+    if (noise){playSound(Db5);}
     noise=true;
     Db5Key.style.backgroundColor="grey";
 }
 
 function fifteen(){
-    if (noise){let audio=document.querySelector(".D5-key");
-    audio.play();}
+    if (noise){playSound(D5);}
     noise=true;
     D5Key.style.backgroundColor="lightgrey";
 }
 
 function sixteen(){
-    if (noise){let audio=document.querySelector(".Eb5-key");
-    audio.play();}
+    if (noise){playSound(Eb5);}
     noise=true;
     Eb5Key.style.backgroundColor="grey";
 }
 
 function seventeen(){
-    if (noise){let audio=document.querySelector(".E5-key");
-    audio.play();}
+    if (noise){playSound(E5);}
     noise=true;
     E5Key.style.backgroundColor="lightgrey";
 }
