@@ -52,7 +52,6 @@ const playC4 = () => {
   C4Key.classList.add("active");
   setTimeout(() => C4Key.classList.remove("active"), 200);
 };
-C4Key.addEventListener("click", playC4);
 
 // Db4
 
@@ -61,7 +60,7 @@ const playDb4 = () => {
   Db4Key.classList.add("active");
   setTimeout(() => Db4Key.classList.remove("active"), 200);
 };
-Db4Key.addEventListener("click", playDb4);
+
 
 // D4
 
@@ -70,7 +69,7 @@ const playD4 = () => {
   D4Key.classList.add("active");
   setTimeout(() => D4Key.classList.remove("active"), 200);
 };
-D4Key.addEventListener("click", playD4);
+
 
 // Eb4
 
@@ -79,7 +78,7 @@ const playEb4 = () => {
   Eb4Key.classList.add("active");
   setTimeout(() => Eb4Key.classList.remove("active"), 200);
 };
-Eb4Key.addEventListener("click", playEb4);
+
 
 // E4
 
@@ -88,7 +87,7 @@ const playE4 = () => {
   E4Key.classList.add("active");
   setTimeout(() => E4Key.classList.remove("active"), 200);
 };
-E4Key.addEventListener("click", playE4);
+
 
 // F4
 
@@ -97,7 +96,7 @@ const playF4 = () => {
   F4Key.classList.add("active");
   setTimeout(() => F4Key.classList.remove("active"), 200);
 };
-F4Key.addEventListener("click", playF4);
+
 
 // Gb4
 
@@ -106,7 +105,7 @@ const playGb4 = () => {
   Gb4Key.classList.add("active");
   setTimeout(() => Gb4Key.classList.remove("active"), 200);
 };
-Gb4Key.addEventListener("click", playGb4);
+
 
 // G4
 
@@ -115,7 +114,7 @@ const playG4 = () => {
   G4Key.classList.add("active");
   setTimeout(() => G4Key.classList.remove("active"), 200);
 };
-G4Key.addEventListener("click", playG4);
+
 
 // Ab4
 
@@ -124,7 +123,7 @@ const playAb4 = () => {
   Ab4Key.classList.add("active");
   setTimeout(() => Ab4Key.classList.remove("active"), 200);
 };
-Ab4Key.addEventListener("click", playAb4);
+
 
 // A4
 
@@ -133,7 +132,7 @@ const playA4 = () => {
   A4Key.classList.add("active");
   setTimeout(() => A4Key.classList.remove("active"), 200);
 };
-A4Key.addEventListener("click", playA4);
+
 
 // Bb4
 
@@ -142,7 +141,7 @@ const playBb4 = () => {
   Bb4Key.classList.add("active");
   setTimeout(() => Bb4Key.classList.remove("active"), 200);
 };
-Bb4Key.addEventListener("click", playBb4);
+
 
 // B4
 
@@ -151,7 +150,7 @@ const playB4 = () => {
   B4Key.classList.add("active");
   setTimeout(() => B4Key.classList.remove("active"), 200);
 };
-B4Key.addEventListener("click", playB4);
+
 
 // C5
 
@@ -160,7 +159,7 @@ const playC5 = () => {
   C5Key.classList.add("active");
   setTimeout(() => C5Key.classList.remove("active"), 200);
 };
-C5Key.addEventListener("click", playC5);
+
 
 // Db5
 
@@ -169,7 +168,7 @@ const playDb5 = () => {
   Db5Key.classList.add("active");
   setTimeout(() => Db5Key.classList.remove("active"), 200);
 };
-Db5Key.addEventListener("click", playDb5);
+
 
 // D5
 
@@ -178,7 +177,7 @@ const playD5 = () => {
   D5Key.classList.add("active");
   setTimeout(() => D5Key.classList.remove("active"), 200);
 };
-D5Key.addEventListener("click", playD5);
+
 
 // Eb5
 
@@ -187,7 +186,7 @@ const playEb5 = () => {
   Eb5Key.classList.add("active");
   setTimeout(() => Eb5Key.classList.remove("active"), 200);
 };
-Eb5Key.addEventListener("click", playEb5);
+
 
 // E5
 
@@ -196,7 +195,7 @@ const playE5 = () => {
   E5Key.classList.add("active");
   setTimeout(() => E5Key.classList.remove("active"), 200);
 };
-E5Key.addEventListener("click", playE5);
+
 
 window.addEventListener("keydown", ({ keyCode }) => {
   // Press A
@@ -277,7 +276,6 @@ window.addEventListener("load", initAudioPlayer);
 
 
 
-
 let order=[];
 let playerOrder=[];
 let flash
@@ -289,11 +287,19 @@ let noise= true;
 let on = false;
 let win;
 
-
+const turnCounter = document.querySelector("#turn");
 const playButton = document.querySelector("#play");
-const tutorialButton = document.querySelector("#tutorial");
+const onButton = document.querySelector("#on");
 
-
+onButton.addEventListener("click",(event)=>{
+    if (onButton.checked == true){
+        on = true;
+        turnCounter.innerHTML="-";
+    }else {
+        on = false;
+        turnCounter.innerHTML="";
+    }
+})
 playButton.addEventListener("click",(event)=>{
     if (win=true){
         play();
@@ -354,7 +360,7 @@ function gameTurn(){
 function one(){
     if (noise){playSound(C4);}
     noise=true;
-    C4Key.style.backgroundColor="lightgrey";
+    C4Key.style.backgroundColor="grey";
 }
 
 function two(){
@@ -365,7 +371,7 @@ function two(){
 function three(){
     if (noise){playSound(D4);}
     noise=true;
-    D4Key.style.backgroundColor="lightgrey";
+    D4Key.style.backgroundColor="grey";
 }
 
 function four(){
@@ -377,13 +383,13 @@ function four(){
 function five(){
     if (noise){playSound(E4);}
     noise=true;
-    E4Key.style.backgroundColor="lightgrey";
+    E4Key.style.backgroundColor="grey";
 }
 
 function six(){
     if (noise){playSound(F4);}
     noise=true;
-    F4Key.style.backgroundColor="lightgrey";
+    F4Key.style.backgroundColor="grey";
 }
 
 function seven(){
@@ -395,7 +401,7 @@ function seven(){
 function eight(){
     if (noise){playSound(G4);}
     noise=true;
-    G4Key.style.backgroundColor="lightgrey";
+    G4Key.style.backgroundColor="grey";
 }
 
 function nine(){
@@ -407,7 +413,7 @@ function nine(){
 function ten(){
     if (noise){playSound(A4);}
     noise=true;
-    A4Key.style.backgroundColor="lightgrey";
+    A4Key.style.backgroundColor="grey";
 }
 
 function eleven(){
@@ -419,14 +425,14 @@ function eleven(){
 function twelve(){
     if (noise){playSound(B4);}
     noise=true;
-    B4Key.style.backgroundColor="lightgrey";
+    B4Key.style.backgroundColor="grey";
 }
 
 function thirteen(){
     if (noise){playSound(C5);
     }
     noise=true;
-    C5Key.style.backgroundColor="lightgrey";
+    C5Key.style.backgroundColor="grey";
 }
 
 function fourteen(){
@@ -438,7 +444,7 @@ function fourteen(){
 function fifteen(){
     if (noise){playSound(D5);}
     noise=true;
-    D5Key.style.backgroundColor="lightgrey";
+    D5Key.style.backgroundColor="grey";
 }
 
 function sixteen(){
@@ -450,7 +456,7 @@ function sixteen(){
 function seventeen(){
     if (noise){playSound(E5);}
     noise=true;
-    E5Key.style.backgroundColor="lightgrey";
+    E5Key.style.backgroundColor="grey";
 }
 
 
@@ -491,3 +497,285 @@ Eb5Key.style.backgroundColor="black";
 E5Key.style.backgroundColor="white";
 
 }
+
+
+
+function flashColor(){
+C4Key.style.backgroundColor="grey";
+Db4Key.style.backgroundColor="grey";
+
+D4Key.style.backgroundColor="grey";
+
+Eb4Key.style.backgroundColor="grey";
+
+E4Key.style.backgroundColor="grey";
+
+F4Key.style.backgroundColor="grey";
+
+Gb4Key.style.backgroundColor="grey";
+
+G4Key.style.backgroundColor="grey";
+
+Ab4Key.style.backgroundColor="grey";
+
+A4Key.style.backgroundColor="grey";
+
+Bb4Key.style.backgroundColor="grey";
+
+B4Key.style.backgroundColor="grey";
+
+C5Key.style.backgroundColor="grey";
+
+Db5Key.style.backgroundColor="grey";
+
+D5Key.style.backgroundColor="grey";
+
+Eb5Key.style.backgroundColor="grey";
+
+E5Key.style.backgroundColor="grey";
+
+}
+
+
+C4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(1);
+        check();
+        one();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+
+
+Db4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(2);
+        check();
+        two();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+D4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(3);
+        check();
+        three();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Eb4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(4);
+        check();
+        four();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+E4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(5);
+        check();
+        five();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+F4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(6);
+        check();
+        six();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Gb4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(7);
+        check();
+        seven();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+G4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(8);
+        check();
+        eight();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Ab4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(9);
+        check();
+        nine();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+A4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(10);
+        check();
+        ten();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Bb4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(11);
+        check();
+        eleven();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+B4Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(12);
+        check();
+        twelve();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+C5Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(13);
+        check();
+        therteen();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Db5Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(14);
+        check();
+        fourteen();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+D5Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(15);
+        check();
+        fifteen();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+Eb5Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(16);
+        check();
+        sixteen();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+E5Key.addEventListener("click", (event) =>{
+    if (play){
+        playerOrder.push(17);
+        check();
+        seventeen();
+        if (!win){
+            setTimeout(()=>{
+                clearColor();
+            },300);
+        }
+    }
+})
+
+
+function check(){
+    if (playerOrder[playerOrder.length -1] !== order[playerOrder.length-1]) good = false;
+
+    if (playerOrder.length==20 && good) {
+        winGame();
+    }
+
+    if (good== false){
+        flashColor();
+        setTimeout(()=>{
+            clearColor();
+            play();
+        }, 800);
+       noise=false;
+    }
+
+    if(turn == playerOrder.length && good &&!win){
+        turn++;
+        playerOrder = [];
+        compTurn=true;
+        flash=0;
+    }
+}
+
+function winGame(){
+    flashColor();
+    play=false;
+    win=true;
+}
+
+
+
+
+
