@@ -35,6 +35,205 @@ const D5Key = document.querySelector(".D5-key");
 const Eb5Key = document.querySelector(".Eb5-key");
 const E5Key = document.querySelector(".E5-key");
 
+var playSound = audio => {
+  var clone = audio.cloneNode();
+  clone.play();
+  setTimeout(() => (clone.volume = 0.8), 400);
+  setTimeout(() => (clone.volume = 0.6), 800);
+  setTimeout(() => (clone.volume = 0.4), 1200);
+  setTimeout(() => (clone.volume = 0.2), 1600);
+  setTimeout(() => (clone.volume = 0), 2000);
+};
+
+// C4
+
+const playC4 = () => {
+  playSound(C4);
+};
+
+// Db4
+
+const playDb4 = () => {
+  playSound(Db4);
+};
+
+
+// D4
+
+const playD4 = () => {
+  playSound(D4);
+};
+
+
+// Eb4
+
+const playEb4 = () => {
+  playSound(Eb4);
+
+};
+
+
+// E4
+
+const playE4 = () => {
+  playSound(E4);
+
+};
+
+
+// F4
+
+const playF4 = () => {
+  playSound(F4);
+ 
+};
+
+
+// Gb4
+
+const playGb4 = () => {
+  playSound(Gb4);
+
+};
+
+
+// G4
+
+const playG4 = () => {
+  playSound(G4);
+
+};
+
+
+// Ab4
+
+const playAb4 = () => {
+  playSound(Ab4);
+
+};
+
+
+// A4
+
+const playA4 = () => {
+  playSound(A4);
+
+};
+
+
+// Bb4
+
+const playBb4 = () => {
+  playSound(Bb4);
+
+};
+
+
+// B4
+
+const playB4 = () => {
+  playSound(B4);
+
+};
+
+
+// C5
+
+const playC5 = () => {
+  playSound(C5);
+
+};
+
+
+// Db5
+
+const playDb5 = () => {
+  playSound(Db5);
+ 
+};
+
+
+// D5
+
+const playD5 = () => {
+  playSound(D5);
+
+};
+
+
+// Eb5
+
+const playEb5 = () => {
+  playSound(Eb5);
+
+};
+
+
+// E5
+
+const playE5 = () => {
+  playSound(E5);
+
+};
+
+
+window.addEventListener("keydown", ({ keyCode }) => {
+  // Press A
+  if (keyCode === 65) return playC4();
+
+  // Press W
+  if (keyCode === 87) return playDb4();
+
+  // Press S
+  if (keyCode === 83) return playD4();
+
+  // Press E
+  if (keyCode === 69) return playEb4();
+
+  // Press D
+  if (keyCode === 68) return playE4();
+
+  // Press F
+  if (keyCode === 70) return playF4();
+
+  // Press T
+  if (keyCode === 84) return playGb4();
+
+  // Press G
+  if (keyCode === 71) return playG4();
+
+  // Press Y
+  if (keyCode === 89) return playAb4();
+
+  // Press H
+  if (keyCode === 72) return playA4();
+
+  // Press U
+  if (keyCode === 85) return playBb4();
+
+  // Press J
+  if (keyCode === 74) return playB4();
+
+  // Press K
+  if (keyCode === 75) return playC5();
+
+  // Press O
+  if (keyCode === 79) return playDb5();
+
+  // Press L
+  if (keyCode === 76) return playD5();
+
+  // Press P 
+  if (keyCode === 80) return playEb5();
+
+  // Press ;
+  if (keyCode === 186) return playE5();
+}); 
+
+
+ 
+
+
 var background_music,mutebtn,unmutebtn;
 function initAudioPlayer(){
     background_music= new Audio();
