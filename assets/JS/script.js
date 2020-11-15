@@ -35,225 +35,6 @@ const D5Key = document.querySelector(".D5-key");
 const Eb5Key = document.querySelector(".Eb5-key");
 const E5Key = document.querySelector(".E5-key");
 
-var playSound = audio => {
-  var clone = audio.cloneNode();
-  clone.play();
-  setTimeout(() => (clone.volume = 0.8), 400);
-  setTimeout(() => (clone.volume = 0.6), 800);
-  setTimeout(() => (clone.volume = 0.4), 1200);
-  setTimeout(() => (clone.volume = 0.2), 1600);
-  setTimeout(() => (clone.volume = 0), 2000);
-};
-
-// C4
-
-const playC4 = () => {
-  playSound(C4);
-  C4Key.classList.add("active");
-  setTimeout(() => C4Key.classList.remove("active"), 200);
-};
-
-// Db4
-
-const playDb4 = () => {
-  playSound(Db4);
-  Db4Key.classList.add("active");
-  setTimeout(() => Db4Key.classList.remove("active"), 200);
-};
-
-
-// D4
-
-const playD4 = () => {
-  playSound(D4);
-  D4Key.classList.add("active");
-  setTimeout(() => D4Key.classList.remove("active"), 200);
-};
-
-
-// Eb4
-
-const playEb4 = () => {
-  playSound(Eb4);
-  Eb4Key.classList.add("active");
-  setTimeout(() => Eb4Key.classList.remove("active"), 200);
-};
-
-
-// E4
-
-const playE4 = () => {
-  playSound(E4);
-  E4Key.classList.add("active");
-  setTimeout(() => E4Key.classList.remove("active"), 200);
-};
-
-
-// F4
-
-const playF4 = () => {
-  playSound(F4);
-  F4Key.classList.add("active");
-  setTimeout(() => F4Key.classList.remove("active"), 200);
-};
-
-
-// Gb4
-
-const playGb4 = () => {
-  playSound(Gb4);
-  Gb4Key.classList.add("active");
-  setTimeout(() => Gb4Key.classList.remove("active"), 200);
-};
-
-
-// G4
-
-const playG4 = () => {
-  playSound(G4);
-  G4Key.classList.add("active");
-  setTimeout(() => G4Key.classList.remove("active"), 200);
-};
-
-
-// Ab4
-
-const playAb4 = () => {
-  playSound(Ab4);
-  Ab4Key.classList.add("active");
-  setTimeout(() => Ab4Key.classList.remove("active"), 200);
-};
-
-
-// A4
-
-const playA4 = () => {
-  playSound(A4);
-  A4Key.classList.add("active");
-  setTimeout(() => A4Key.classList.remove("active"), 200);
-};
-
-
-// Bb4
-
-const playBb4 = () => {
-  playSound(Bb4);
-  Bb4Key.classList.add("active");
-  setTimeout(() => Bb4Key.classList.remove("active"), 200);
-};
-
-
-// B4
-
-const playB4 = () => {
-  playSound(B4);
-  B4Key.classList.add("active");
-  setTimeout(() => B4Key.classList.remove("active"), 200);
-};
-
-
-// C5
-
-const playC5 = () => {
-  playSound(C5);
-  C5Key.classList.add("active");
-  setTimeout(() => C5Key.classList.remove("active"), 200);
-};
-
-
-// Db5
-
-const playDb5 = () => {
-  playSound(Db5);
-  Db5Key.classList.add("active");
-  setTimeout(() => Db5Key.classList.remove("active"), 200);
-};
-
-
-// D5
-
-const playD5 = () => {
-  playSound(D5);
-  D5Key.classList.add("active");
-  setTimeout(() => D5Key.classList.remove("active"), 200);
-};
-
-
-// Eb5
-
-const playEb5 = () => {
-  playSound(Eb5);
-  Eb5Key.classList.add("active");
-  setTimeout(() => Eb5Key.classList.remove("active"), 200);
-};
-
-
-// E5
-
-const playE5 = () => {
-  playSound(E5);
-  E5Key.classList.add("active");
-  setTimeout(() => E5Key.classList.remove("active"), 200);
-};
-
-
-window.addEventListener("keydown", ({ keyCode }) => {
-  // Press A
-  if (keyCode === 65) return playC4();
-
-  // Press W
-  if (keyCode === 87) return playDb4();
-
-  // Press S
-  if (keyCode === 83) return playD4();
-
-  // Press E
-  if (keyCode === 69) return playEb4();
-
-  // Press D
-  if (keyCode === 68) return playE4();
-
-  // Press F
-  if (keyCode === 70) return playF4();
-
-  // Press T
-  if (keyCode === 84) return playGb4();
-
-  // Press G
-  if (keyCode === 71) return playG4();
-
-  // Press Y
-  if (keyCode === 89) return playAb4();
-
-  // Press H
-  if (keyCode === 72) return playA4();
-
-  // Press U
-  if (keyCode === 85) return playBb4();
-
-  // Press J
-  if (keyCode === 74) return playB4();
-
-  // Press K
-  if (keyCode === 75) return playC5();
-
-  // Press O
-  if (keyCode === 79) return playDb5();
-
-  // Press L
-  if (keyCode === 76) return playD5();
-
-  // Press P 
-  if (keyCode === 80) return playEb5();
-
-  // Press ;
-  if (keyCode === 186) return playE5();
-}); 
-
-
- 
-
-
 var background_music,mutebtn,unmutebtn;
 function initAudioPlayer(){
     background_music= new Audio();
@@ -298,10 +79,12 @@ onButton.addEventListener("click",(event)=>{
     }else {
         on = false;
         turnCounter.innerHTML="";
+        clearColor();
+        clearInterval(intervalId);
     }
 })
 playButton.addEventListener("click",(event)=>{
-    if (win=true){
+    if (on||win){
         play();
     }
 });
@@ -312,6 +95,7 @@ function play(){
     flash = 0;
     intervalId=0;
     turn=1;
+    turnCounter.innerHTML=1;
     good=true;
     for (var i=0; i<20; i++){
         order.push(Math.floor(Math.random()*17)+1);
@@ -319,16 +103,16 @@ function play(){
     console.log(order);
 
     compTurn=true;
-    intervalId= setInterval(gameTurn, 800);
+    intervalId= setInterval(gameTurn, 1800);
     
 }
 function gameTurn(){
-    play=false;
+    on=false;
     if (flash==turn){
         clearInterval(intervalId);
-        campTurn=false;
+        compTurn=false;
         clearColor();
-        play=true;
+        on=true;
     }
 
     if(compTurn){
@@ -352,7 +136,7 @@ function gameTurn(){
             if(order[flash]==16) sixteen();
             if(order[flash]==17) seventeen();
             flash++;
-        },200);
+        },800);
 
     }
 }
@@ -538,7 +322,7 @@ E5Key.style.backgroundColor="grey";
 
 
 C4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(1);
         check();
         one();
@@ -552,7 +336,7 @@ C4Key.addEventListener("click", (event) =>{
 
 
 Db4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(2);
         check();
         two();
@@ -564,7 +348,7 @@ Db4Key.addEventListener("click", (event) =>{
     }
 })
 D4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(3);
         check();
         three();
@@ -576,7 +360,7 @@ D4Key.addEventListener("click", (event) =>{
     }
 })
 Eb4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(4);
         check();
         four();
@@ -588,7 +372,7 @@ Eb4Key.addEventListener("click", (event) =>{
     }
 })
 E4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(5);
         check();
         five();
@@ -600,7 +384,7 @@ E4Key.addEventListener("click", (event) =>{
     }
 })
 F4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(6);
         check();
         six();
@@ -612,7 +396,7 @@ F4Key.addEventListener("click", (event) =>{
     }
 })
 Gb4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(7);
         check();
         seven();
@@ -624,7 +408,7 @@ Gb4Key.addEventListener("click", (event) =>{
     }
 })
 G4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(8);
         check();
         eight();
@@ -636,7 +420,7 @@ G4Key.addEventListener("click", (event) =>{
     }
 })
 Ab4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(9);
         check();
         nine();
@@ -648,7 +432,7 @@ Ab4Key.addEventListener("click", (event) =>{
     }
 })
 A4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(10);
         check();
         ten();
@@ -660,7 +444,7 @@ A4Key.addEventListener("click", (event) =>{
     }
 })
 Bb4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(11);
         check();
         eleven();
@@ -672,7 +456,7 @@ Bb4Key.addEventListener("click", (event) =>{
     }
 })
 B4Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(12);
         check();
         twelve();
@@ -684,10 +468,10 @@ B4Key.addEventListener("click", (event) =>{
     }
 })
 C5Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(13);
         check();
-        therteen();
+        thirteen();
         if (!win){
             setTimeout(()=>{
                 clearColor();
@@ -696,7 +480,7 @@ C5Key.addEventListener("click", (event) =>{
     }
 })
 Db5Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(14);
         check();
         fourteen();
@@ -708,7 +492,7 @@ Db5Key.addEventListener("click", (event) =>{
     }
 })
 D5Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(15);
         check();
         fifteen();
@@ -720,7 +504,7 @@ D5Key.addEventListener("click", (event) =>{
     }
 })
 Eb5Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(16);
         check();
         sixteen();
@@ -732,7 +516,7 @@ Eb5Key.addEventListener("click", (event) =>{
     }
 })
 E5Key.addEventListener("click", (event) =>{
-    if (play){
+    if (on){
         playerOrder.push(17);
         check();
         seventeen();
@@ -748,30 +532,39 @@ E5Key.addEventListener("click", (event) =>{
 function check(){
     if (playerOrder[playerOrder.length -1] !== order[playerOrder.length-1]) good = false;
 
-    if (playerOrder.length==20 && good) {
+    if (playerOrder.length==5 && good) {
         winGame();
     }
-
+/*---------------------------------------*/
     if (good== false){
         flashColor();
+        turnCounter.innerHTML="NO!";
         setTimeout(()=>{
+            turnCounter.innerHTML=turn;
             clearColor();
-            play();
-        }, 800);
+            compTurn= true;
+            flash=0;
+            playerOrder=[];
+            good=true;
+            intervalID=setInterval(gameTurn, 1800);
+        }, 1800);
        noise=false;
     }
 
-    if(turn == playerOrder.length && good &&!win){
+    if(turn == playerOrder.length && good && !win){
         turn++;
         playerOrder = [];
         compTurn=true;
         flash=0;
+        turnCounter.innerHTML = turn;
+        intervalID= setInterval(gameTurn,1800);
     }
 }
 
 function winGame(){
     flashColor();
-    play=false;
+    turnCounter.innerHTML="WiN!";
+    on=false;
     win=true;
 }
 
