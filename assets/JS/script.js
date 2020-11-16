@@ -238,7 +238,7 @@ function play() {
   turnCounter.innerHTML = 1;
   good = true;
   for (var i = 0; i < 20; i++) {
-    order.push(Math.floor(Math.random() * 4) + 1);
+    order.push(Math.floor(Math.random() * 16) + 1);
   }
   compTurn = true;
 
