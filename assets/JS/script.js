@@ -175,65 +175,6 @@ const playE5 = () => {
   playSound(E5);
 
 };
-
-
-window.addEventListener("keydown", ({ keyCode }) => {
-  // Press A
-  if (keyCode === 65) return playC4();
-
-  // Press W
-  if (keyCode === 87) return playDb4();
-
-  // Press S
-  if (keyCode === 83) return playD4();
-
-  // Press E
-  if (keyCode === 69) return playEb4();
-
-  // Press D
-  if (keyCode === 68) return playE4();
-
-  // Press F
-  if (keyCode === 70) return playF4();
-
-  // Press T
-  if (keyCode === 84) return playGb4();
-
-  // Press G
-  if (keyCode === 71) return playG4();
-
-  // Press Y
-  if (keyCode === 89) return playAb4();
-
-  // Press H
-  if (keyCode === 72) return playA4();
-
-  // Press U
-  if (keyCode === 85) return playBb4();
-
-  // Press J
-  if (keyCode === 74) return playB4();
-
-  // Press K
-  if (keyCode === 75) return playC5();
-
-  // Press O
-  if (keyCode === 79) return playDb5();
-
-  // Press L
-  if (keyCode === 76) return playD5();
-
-  // Press P 
-  if (keyCode === 80) return playEb5();
-
-  // Press ;
-  if (keyCode === 186) return playE5();
-}); 
-
-
- 
-
-
 var background_music,mutebtn,unmutebtn;
 function initAudioPlayer(){
     background_music= new Audio();
@@ -253,17 +194,14 @@ function initAudioPlayer(){
         background_music.muted=false}
 }
 window.addEventListener("load", initAudioPlayer);
-
-
-
-let order=[];
-let playerOrder=[];
-let flash
+let order = [];
+let playerOrder = [];
+let flash;
 let turn;
 let good;
 let compTurn;
 let intervalId;
-let noise= true;
+let noise = true;
 let on = false;
 let win;
 
@@ -271,53 +209,56 @@ const turnCounter = document.querySelector("#turn");
 const playButton = document.querySelector("#play");
 const onButton = document.querySelector("#on");
 
-onButton.addEventListener("click",(event)=>{
-    if (onButton.checked == true){
-        on = true;
-        turnCounter.innerHTML="-";
-    }else {
-        on = false;
-        turnCounter.innerHTML="";
-        clearColor();
-        clearInterval(intervalId);
-    }
-})
-playButton.addEventListener("click",(event)=>{
-    if (on||win){
-        play();
-    }
+
+onButton.addEventListener('click', (event) => {
+  if (onButton.checked == true) {
+    on = true;
+    turnCounter.innerHTML = "-";
+  } else {
+    on = false;
+    turnCounter.innerHTML = "";
+    clearColor();
+    clearInterval(intervalId);
+  }
 });
-function play(){
-    win=false;
-    order=[];
-    playOrder=[];
-    flash = 0;
-    intervalId=0;
-    turn=1;
-    turnCounter.innerHTML=1;
-    good=true;
-    for (var i=0; i<20; i++){
-        order.push(Math.floor(Math.random()*17)+1);
-    }
-    console.log(order);
 
-    compTurn=true;
-    intervalId= setInterval(gameTurn, 1800);
-    
+playButton.addEventListener('click', (event) => {
+  if (on || win) {
+    play();
+  }
+});
+
+function play() {
+  win = false;
+  order = [];
+  playerOrder = [];
+  flash = 0;
+  intervalId = 0;
+  turn = 1;
+  turnCounter.innerHTML = 1;
+  good = true;
+  for (var i = 0; i < 20; i++) {
+    order.push(Math.floor(Math.random() * 4) + 1);
+  }
+  compTurn = true;
+
+  intervalId = setInterval(gameTurn, 800);
 }
-function gameTurn(){
-    on=false;
-    if (flash==turn){
-        clearInterval(intervalId);
-        compTurn=false;
-        clearColor();
-        on=true;
-    }
 
-    if(compTurn){
-        clearColor();
-        setTimeout(()=>{
-            if(order[flash]==1) one();
+function gameTurn() {
+  on = false;
+
+  if (flash == turn) {
+    clearInterval(intervalId);
+    compTurn = false;
+    clearColor();
+    on = true;
+  }
+
+  if (compTurn) {
+    clearColor();
+    setTimeout(() => {
+      if(order[flash]==1) one();
             if(order[flash]==2) two();
             if(order[flash]==3) three();
             if(order[flash]==4) four();
@@ -335,11 +276,9 @@ function gameTurn(){
             if(order[flash]==16) sixteen();
             if(order[flash]==17) seventeen();
             flash++;
-        },800);
-
-    }
+    }, 200);
+  }
 }
-/*---------------------------buton functions--------------------*/
 function one(){
     if (noise){playSound(C4);}
     noise=true;
@@ -442,9 +381,6 @@ function seventeen(){
     E5Key.style.backgroundColor="grey";
 }
 
-
-
-
 function clearColor(){
 C4Key.style.backgroundColor="white";
 Db4Key.style.backgroundColor="black";
@@ -482,7 +418,6 @@ E5Key.style.backgroundColor="white";
 }
 
 
-
 function flashColor(){
 C4Key.style.backgroundColor="grey";
 Db4Key.style.backgroundColor="grey";
@@ -518,7 +453,6 @@ Eb5Key.style.backgroundColor="grey";
 E5Key.style.backgroundColor="grey";
 
 }
-
 
 C4Key.addEventListener("click", (event) =>{
     if (on){
@@ -727,47 +661,39 @@ E5Key.addEventListener("click", (event) =>{
     }
 })
 
+function check() {
+  if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
+    good = false;
 
-function check(){
-    if (playerOrder[playerOrder.length -1] !== order[playerOrder.length-1]) good = false;
+  if (playerOrder.length == 6 && good) {
+    winGame();
+  }
 
-    if (playerOrder.length==5 && good) {
-        winGame();
-    }
-/*---------------------------------------*/
-    if (good== false){
-        flashColor();
-        turnCounter.innerHTML="NO!";
-        setTimeout(()=>{
-            turnCounter.innerHTML=turn;
-            clearColor();
-            compTurn= true;
-            flash=0;
-            playerOrder=[];
-            good=true;
-            intervalID=setInterval(gameTurn, 1800);
-        }, 1800);
-       noise=false;
-    }
-
-    if(turn == playerOrder.length && good && !win){
-        turn++;
-        playerOrder = [];
-        compTurn=true;
-        flash=0;
-        turnCounter.innerHTML = turn;
-        intervalID= setInterval(gameTurn,1800);
-    }
-}
-
-function winGame(){
+  if (good == false) {
     flashColor();
-    turnCounter.innerHTML="WiN!";
-    on=false;
-    win=true;
+    turnCounter.innerHTML = "NO!";
+    setTimeout(() => {
+    play();
+   
+    }, 800);
+
+    noise = false;
+  }
+
+  if (turn == playerOrder.length && good && !win) {
+    turn++;
+    playerOrder = [];
+    compTurn = true;
+    flash = 0;
+    turnCounter.innerHTML = turn;
+    intervalId = setInterval(gameTurn, 800);
+  }
+
 }
 
-
-
-
-
+function winGame() {
+  flashColor();
+  turnCounter.innerHTML = "WIN!";
+  on = false;
+  win = true;
+}
