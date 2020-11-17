@@ -685,7 +685,7 @@ function check() {
 
     noise = false;
   }
-/*------------If good answer but not win game move to the next level----------*/
+/*------------If good answer but not win game move to the other level----------*/
   if (turn == playerOrder.length && good && !win) {
     turn++;
     playerOrder = [];
@@ -696,7 +696,7 @@ function check() {
   }
 
 }
-/*------------If win game display win flash color all grey----------*/
+/*------------If the answers match flash all tasts with grey color and show win on counter----------*/
 function winGame() {
   flashColor();
   turnCounter.innerHTML = "WIN!";
