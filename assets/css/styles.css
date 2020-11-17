@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*-------------------------------------------------html properties--------------------------------------------------*/
 html {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -7,7 +9,7 @@ html {
   margin: 0;
   height: 100vh;
 }
-
+/*-------------------------------------------------bodie properties--------------------------------------------------*/
 body {
     background: url(.././images/background_3.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -19,6 +21,76 @@ body {
     display: grid;
 }
 
+/*----Id's---*/
+#turn {
+background:transparent;
+    color: darkred;
+    font-family: courier;
+    font-size: 30px;
+}
+
+/*-------------------------------------------------Classes--------------------------------------------------*/
+/*----header properties---*/
+.header {
+  font-family: Dancing Script;
+  width: 520px;
+  border: 1px solid;
+  margin: auto;
+  text-align: center;
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    5px 5px 15px 5px rgba(255, 139, 253, 0);
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 105px,
+    #cb8211 0px 0px 20px, #cb8211 0px 0px 30px, #cb8211 0px 0px 90px,
+    #cb8211 0px 0px 100px, #cb8211 0px 0px 105px;
+}
+
+.title {
+  font-size: 80px;
+}
+/*----button group---*/
+.btn-group {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+}
+/*----button class---*/
+.button {
+  text-align: center;
+  width: 120px;
+  margin-top: 5px;
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: transparent;
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    5px 5px 15px 5px rgba(255, 139, 253, 0);
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    5px 5px 15px 5px rgba(255, 139, 253, 0);
+
+  border-radius: 15px;
+
+  font-family: "Luckiest Guy", cursive;
+  font-size: 16px;
+}
+
+
+
+/*----iframe---*/
+.frame {
+  width: 400px;
+  height: 300px;
+  background-color: transparent;
+  margin: auto;
+  text-align: center;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  position: relative;
+}
+/*----piano keyboard---*/
 .keyboard {
   display: flex;
   position: relative;
@@ -26,7 +98,7 @@ body {
   margin: 50px;
 }
 
-
+/*---piano class---*/
 .piano {
     height: 300px;
     justify-content: center;
@@ -37,7 +109,7 @@ body {
     margin: 0 auto 100px auto;
     margin-top: 50px;
 }
-
+/*---white keys of the piano keyboard---*/
 .white-key {
   width: 90px;
   height: 180px;
@@ -52,7 +124,7 @@ body {
 .white-key.active {
   background-color: #c0c0c0;
 }
-
+/*---black keys of the piano keyboard---*/
 .black-key {
   position: absolute;
   width: 40px;
@@ -67,7 +139,7 @@ body {
 .black-key.active {
   background-image: linear-gradient(#000000, #101010);
 }
-
+/*---position absolute of the black and white keys---*/
 .Db4-key {
   left: 63px;
 }
@@ -100,9 +172,13 @@ body {
   margin: 50px;
 }
 
+/*---Aditional style for texts---*/
+h2,h3{margin: 0;
+    font-size: 1.17rem;}
+
 /*------------------------------------------------------------media-------------------------------------------------*/
 
-/* Smartphones (portrait) ----------- */
+/*-----------Smartphones (portrait)----------- */
 
 @media only screen and (max-width: 450px) {
       body {
@@ -197,72 +273,3 @@ body {
     left: 620px;
   }
 }
-
-.frame {
-  width: 400px;
-  height: 300px;
-  background-color: transparent;
-  margin: auto;
-  text-align: center;
-  border: 1px solid transparent;
-  -webkit-box-shadow: 0px 10px 13px -7px #000000,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  position: relative;
-}
-
-.button {
-  text-align: center;
-  width: 120px;
-  margin-top: 5px;
-  margin-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 40px;
-  padding-right: 40px;
-  background-color: transparent;
-  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
-    5px 5px 15px 5px rgba(255, 139, 253, 0);
-  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
-    5px 5px 15px 5px rgba(255, 139, 253, 0);
-
-  border-radius: 15px;
-
-  font-family: "Luckiest Guy", cursive;
-  font-size: 16px;
-}
-.btn-group {
-  position: absolute;
-  z-index: 1;
-  display: inline-flex;
-}
-
-.header {
-  font-family: Dancing Script;
-  width: 520px;
-  border: 1px solid;
-  margin: auto;
-  text-align: center;
-  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
-    5px 5px 15px 5px rgba(255, 139, 253, 0);
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 105px,
-    #cb8211 0px 0px 20px, #cb8211 0px 0px 30px, #cb8211 0px 0px 90px,
-    #cb8211 0px 0px 100px, #cb8211 0px 0px 105px;
-}
-
-.title {
-  font-size: 80px;
-}
-
-
-
-#turn {
-background: #330000;
-    color: red;
-    font-family: courier;
-    font-size: 30px;
-}
-
-
-h2,h3{margin: 0;
-    font-size: 1.17rem;}
