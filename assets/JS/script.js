@@ -1,3 +1,4 @@
+/*-------------------------------------------------Key sounds--------------------------------------------------*/
 var C4 = new Audio("assets/sounds/C4.mp3");
 var Db4 = new Audio("assets/sounds/Db4.mp3");
 var D4 = new Audio("assets/sounds/D4.mp3");
@@ -16,7 +17,7 @@ var D5 = new Audio("assets/sounds/D5.mp3");
 var Eb5 = new Audio("assets/sounds/Eb5.mp3");
 var E5 = new Audio("assets/sounds/E5.mp3");
 
-/*------------------------Piano keys-----------------------*/
+/*-------------------------------------------------Constants for interactivity application--------------------------------------------------*/
 const C4Key = document.querySelector(".C4-key");
 const Db4Key = document.querySelector(".Db4-key");
 const D4Key = document.querySelector(".D4-key");
@@ -34,7 +35,10 @@ const Db5Key = document.querySelector(".Db5-key");
 const D5Key = document.querySelector(".D5-key");
 const Eb5Key = document.querySelector(".Eb5-key");
 const E5Key = document.querySelector(".E5-key");
-
+const turnCounter = document.querySelector("#turn");
+const playButton = document.querySelector("#play");
+const onButton = document.querySelector("#on");
+/*-------------------------------------------------Play sound function coneced to the tasts--------------------------------------------------*/
 var playSound = audio => {
   var clone = audio.cloneNode();
   clone.play();
@@ -175,11 +179,13 @@ const playE5 = () => {
   playSound(E5);
 
 };
+/*-------------------------------------------------Background_music--------------------------------------------------*/
 var background_music,mutebtn,unmutebtn;
 function initAudioPlayer(){
     background_music= new Audio();
-    background_music.src = "assets/sounds/background_music.mp3";
+    background_music.src = "assets/sounds/background_music2.mp3";
     background_music.loop=true;
+    background_music.volume=0.06;
     background_music.play();
 
     mutebtn= document.getElementById("mute");
@@ -194,6 +200,7 @@ function initAudioPlayer(){
         background_music.muted=false}
 }
 window.addEventListener("load", initAudioPlayer);
+/*-------------------------------------------------Variables within the game--------------------------------------------------*/
 let order = [];
 let playerOrder = [];
 let flash;
@@ -205,11 +212,9 @@ let noise = true;
 let on = false;
 let win;
 
-const turnCounter = document.querySelector("#turn");
-const playButton = document.querySelector("#play");
-const onButton = document.querySelector("#on");
 
 
+/*-------------------------------------------------On button to make the game start when it is presed--------------------------------------------------*/
 onButton.addEventListener('click', (event) => {
   if (onButton.checked == true) {
     on = true;
@@ -221,13 +226,13 @@ onButton.addEventListener('click', (event) => {
     clearInterval(intervalId);
   }
 });
-
+/*-------------------------------------------------Play button to comence function play when it is presed--------------------------------------------------*/
 playButton.addEventListener('click', (event) => {
   if (on || win) {
     play();
   }
 });
-
+/*------------Comence the secuence generating the tasts to be played----------*/
 function play() {
   win = false;
   order = [];
@@ -244,7 +249,7 @@ function play() {
 
   intervalId = setInterval(gameTurn, 800);
 }
-
+/*------------Function  for the game how to behave when it is the computer turn ----------*/
 function gameTurn() {
   on = false;
 
@@ -279,6 +284,7 @@ function gameTurn() {
     }, 200);
   }
 }
+/*------------Functoion for each of the tasts----------*/
 function one(){
     if (noise){playSound(C4);}
     noise=true;
@@ -380,7 +386,7 @@ function seventeen(){
     noise=true;
     E5Key.style.backgroundColor="grey";
 }
-
+/*------------Change background color to original color after the sequence is run----------*/
 function clearColor(){
 C4Key.style.backgroundColor="white";
 Db4Key.style.backgroundColor="black";
@@ -417,7 +423,7 @@ E5Key.style.backgroundColor="white";
 
 }
 
-
+/*------------Changes color of keyboard buttons to grey----------*/
 function flashColor(){
 C4Key.style.backgroundColor="grey";
 Db4Key.style.backgroundColor="grey";
@@ -453,7 +459,7 @@ Eb5Key.style.backgroundColor="grey";
 E5Key.style.backgroundColor="grey";
 
 }
-
+/*------------tracker when the player has clicked the sections----------*/
 C4Key.addEventListener("click", (event) =>{
     if (on){
         playerOrder.push(1);
@@ -660,7 +666,7 @@ E5Key.addEventListener("click", (event) =>{
         }
     }
 })
-
+/*------------Check the player moves----------*/
 function check() {
   if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
     good = false;
@@ -668,7 +674,7 @@ function check() {
   if (playerOrder.length == 6 && good) {
     winGame();
   }
-
+/*------------If wrong answers----------*/
   if (good == false) {
     flashColor();
     turnCounter.innerHTML = "NO!";
@@ -679,7 +685,7 @@ function check() {
 
     noise = false;
   }
-
+/*------------If good answer but not win game move to the next level----------*/
   if (turn == playerOrder.length && good && !win) {
     turn++;
     playerOrder = [];
@@ -690,7 +696,7 @@ function check() {
   }
 
 }
-
+/*------------If win game display win flash color all grey----------*/
 function winGame() {
   flashColor();
   turnCounter.innerHTML = "WIN!";
