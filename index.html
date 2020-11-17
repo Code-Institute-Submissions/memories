@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" class="home-bg">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="shortcut icon" href="#" />
-    <title>Piano</title>
-  </head>
-  <body>
-   <!--Page title-->
-  <div class="header"><h1 class="title">Memories</h1></div> 
-
-    <!--Piano structure--> 
-      <div class="piano">
-       <!--Buton groups checkbox, music on off ,turn counter , play-->
-       <div class="btn-group">
-       <div class="button">
-       <h3>Power</h3>
-       <input type="checkbox" id="on">
-       </div>
-       <div id="turn" class="button"></div>
-       <button class="button" type="button" id="play"><h2>Play</h2></button><br>
-        <button class="button" type="button" id="unmute"><i class="fas fa-volume-up"></i></button><br>
-          <button class=" button"  type="button" id="mute"><i class="fas fa-volume-mute"></i></button><br>
-         
-          
-      </div>  
-       <!--Keyboard white and black tasts-->  
-        <div class="keyboard">
-          <button class="white-key C4-key" id="one"></button>
-          <button class="black-key Db4-key" id="two"></button>
-          <button class="white-key D4-key" id="three"></button>
-          <button class="black-key Eb4-key" id="four"></button>
-          <button class="white-key E4-key" id="five"></button>
-          <button class="white-key F4-key" id="six"></button>
-          <button class="black-key Gb4-key" id="seven"></button>
-          <button class="white-key G4-key" id="eight"></button>
-          <button class="black-key Ab4-key" id="nine"></button>
-          <button class="white-key A4-key" id="ten"></button>
-          <button class="black-key Bb4-key" id="eleven"></button>
-          <button class="white-key B4-key" id="twelve"></button>
-          <button class="white-key C5-key" id="thirteen"></button>
-          <button class="black-key Db5-key" id="fourteen"></button>
-          <button class="white-key D5-key" id="fifteen"></button>
-          <button class="black-key Eb5-key" id="sixteen"></button>
-          <button class="white-key E5-key" id="seventeen"></button>
-        </div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+         type="text/css"
+         />
+      <link
+         rel="stylesheet"
+         href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+         crossorigin="anonymous"
+         />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+         />
+      <link rel="stylesheet" href="assets/css/styles.css" />
+      <link rel="shortcut icon" href="#" />
+      <title>Piano</title>
+   </head>
+   <body>
+      <!--Page title-->
+      <div class="header">
+         <h1 class="title">Memories</h1>
       </div>
-    
- <!--Link to Javascript files-->
-    <script src="assets/JS/script.js"></script>
-  </body>
+      <!--Piano structure--> 
+      <div class="piano">
+         <!--Buton groups checkbox, music on off ,turn counter , play-->
+         <div class="btn-group">
+            <div class="button">
+               <h3>Power</h3>
+               <input type="checkbox" id="on">
+            </div>
+            <div id="turn" class="button"></div>
+            <button class="button" type="button" id="play">
+               Play
+            </button>
+            <br>
+            <button class="button" type="button" id="unmute"><i class="fas fa-volume-up"></i></button><br>
+            <button class=" button"  type="button" id="mute"><i class="fas fa-volume-mute"></i></button><br>
+         </div>
+         <!--Keyboard white and black tasts-->  
+         <div class="keyboard">
+            <button class="white-key C4-key" id="one"></button>
+            <button class="black-key Db4-key" id="two"></button>
+            <button class="white-key D4-key" id="three"></button>
+            <button class="black-key Eb4-key" id="four"></button>
+            <button class="white-key E4-key" id="five"></button>
+            <button class="white-key F4-key" id="six"></button>
+            <button class="black-key Gb4-key" id="seven"></button>
+            <button class="white-key G4-key" id="eight"></button>
+            <button class="black-key Ab4-key" id="nine"></button>
+            <button class="white-key A4-key" id="ten"></button>
+            <button class="black-key Bb4-key" id="eleven"></button>
+            <button class="white-key B4-key" id="twelve"></button>
+            <button class="white-key C5-key" id="thirteen"></button>
+            <button class="black-key Db5-key" id="fourteen"></button>
+            <button class="white-key D5-key" id="fifteen"></button>
+            <button class="black-key Eb5-key" id="sixteen"></button>
+            <button class="white-key E5-key" id="seventeen"></button>
+         </div>
+      </div>
+      <!--Link to Javascript files-->
+      <script src="assets/JS/script.js"></script>
+   </body>
 </html>
