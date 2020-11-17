@@ -43,7 +43,7 @@ body {
 
 .header {
 	font-family: Dancing Script;
-	width: 520px;
+	width: 500px;
 	border: 1px solid;
 	margin: auto;
 	text-align: center;
@@ -68,20 +68,15 @@ body {
 /*----button class---*/
 
 .button {
-	text-align: center;
-	width: 120px;
-	margin-top: 5px;
-	margin-left: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 40px;
-	padding-right: 40px;
-	background-color: transparent;
-	-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
-	box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
-	border-radius: 15px;
-	font-family: "Luckiest Guy", cursive;
-	font-size: 20px;
+    display: table-row-group;
+    margin: 10px;
+    text-align: center;
+    width: 120px;
+    background-color: transparent;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
+    border-radius: 15px;
+    font-size: 20px;
 }
 
 
