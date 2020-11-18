@@ -28,6 +28,11 @@ body {
 
 /*----Id's---*/
 
+#on {
+	height: 22px;
+	width: 22px;
+}
+
 #turn {
 	background: transparent;
 	color: darkred;
@@ -43,7 +48,7 @@ body {
 
 .header {
 	font-family: Dancing Script;
-	width: 500px;
+	width: 520px;
 	border: 1px solid;
 	margin: auto;
 	text-align: center;
@@ -68,15 +73,15 @@ body {
 /*----button class---*/
 
 .button {
-    display: table-row-group;
-    margin: 10px;
-    text-align: center;
-    width: 120px;
-    background-color: transparent;
-    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
-    border-radius: 15px;
-    font-size: 20px;
+	text-align: center;
+	width: 120px;
+	height: 50px;
+	margin: 10px;
+	background-color: transparent;
+	-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
+	box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(255, 139, 253, 0);
+	border-radius: 15px;
+	font-size: 20px;
 }
 
 
