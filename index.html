@@ -19,6 +19,7 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
          />
       <link rel="stylesheet" href="assets/css/styles.css" />
+      <!--Used because of showing favicon missing 404-->
       <link rel="shortcut icon" href="#" />
       <title>Piano</title>
    </head>
@@ -35,13 +36,13 @@
                <h3>Power</h3>
                <input type="checkbox" id="on">
             </div>
-            <div id="turn" class="button"></div>
-            <button class="button" type="button" id="play">
-               Play
+            <div id="turn" class="button" ></div>
+            <button class="button start" disabled  type="button" id="play">
+            Play
             </button>
             <br>
-            <button class="button" type="button" id="unmute"><i class="fas fa-volume-up"></i></button><br>
-            <button class=" button"  type="button" id="mute"><i class="fas fa-volume-mute"></i></button><br>
+            <button class="button unmute" type="button" disabled><i class="fas fa-volume-up"></i></button><br>
+            <button class=" button mute"  type="button" disabled><i class="fas fa-volume-mute"></i></button><br>
          </div>
          <!--Keyboard white and black tasts-->  
          <div class="keyboard">
